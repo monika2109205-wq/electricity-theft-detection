@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>⚡ Energy App</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="usage.html">Usage</a>
+    <a href="alerts.html">Alerts</a>
+</div>
+
+<div class="main">
+    <h1>📊 Electricity Usage</h1>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <button onclick="loadChart('daily')">Daily</button>
+        <button onclick="loadChart('weekly')">Weekly</button>
+        <button onclick="loadChart('monthly')">Monthly</button>
+    </div>
+
+    <canvas id="chart"></canvas>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
