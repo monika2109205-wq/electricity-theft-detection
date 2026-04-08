@@ -35,6 +35,40 @@
     </table>
 
 </div>
+<script>
+async function loadAlerts() {
+    let res = await fetch("/alerts");
+    let data = await res.json();
+
+    let table = document.querySelector("table");
+
+    // Reset table
+    table.innerHTML = `
+        <tr>
+            <th>User</th>
+            <th>Status</th>
+            <th>Usage</th>
+        </tr>
+    `;
+
+    data.forEach(item => {
+        let row = table.insertRow();
+
+        row.insertCell(0).innerText = item.user;
+
+        // 🔴 Status with dot
+        row.insertCell(1).innerHTML =
+            item.status === "High Risk"
+            ? "🔴 High Risk"
+            : "🟠 Medium Risk";
+
+        // ✅ Correct usage column
+        row.insertCell(2).innerText = item.usage + " units";
+    });
+}
+
+window.onload = loadAlerts;
+</script>
 
 </body>
 </html>
